@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+    <!-- OVERLAY (LATAR GELAP) -->
+    <div class="overlay" onclick="tutupMenu()"></div>
+
+    <!-- SIDEBAR MENU -->
+    <aside class="sidebar">
+
+        <!-- HEADER MENU -->
+        <div class="menu-header">
+            <img src="images/logo.png" alt="RdhaMrket" class="menu-logo">
+            <button class="tutup" onclick="tutupMenu()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- DAFTAR MENU -->
+        <nav class="menu-list">
+            <div class="menu-group">
+                <!-- Tombol Topup berpindah langsung ke tampilan.html -->
+                <a href="javascript:void(0);" onclick="window.top.location.href='tampilan.html'" class="menu-item">
+                    <span>Topup</span>
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span>Cek Transaksi</span>
+                    <i class="fa-solid fa-box-archive"></i>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span>Leaderboard</span>
+                    <i class="fa-solid fa-ranking-star"></i>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span>Kalkulator</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- MENU AKUN -->
+            <div class="menu-group auth-group">
+                <a href="#" class="menu-item">
+                    <span>Masuk</span>
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span>Daftar</span>
+                    <i class="fa-regular fa-user"></i>
+                </a>
+            </div>
+        </nav>
+
+    </aside>
+
+    <script>
+        function tutupMenu() {
+            document.body.classList.add("closing");
+            setTimeout(() => {
+                parent.postMessage("tutupMenu", "*");
+                document.body.classList.remove("closing");
+            }, 210);
+        }
+    </script>
+</body>
+</html>
