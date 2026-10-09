@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Top Up Mobile Legends - RdhaMrket</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="mobilelegends.css">
+</head>
+
+<body>
+
+    <!-- ================= TOAST NOTIFIKASI ================= -->
+    <div id="toast-notif" class="toast-popup">
+        <i class="fa-solid fa-circle-xmark"></i>
+        <span id="toast-pesan">Pemberitahuan</span>
+    </div>
+
+    <!-- ================= HEADER TERKUNCI ================= -->
+    <div class="header-tetap">
+        <header class="header">
+            <div class="logo">
+                <a href="tampilan.html"><img src="images/logo.png" alt="RdhaMrket"></a>
+            </div>
+
+            <div class="header-kanan">
+                <button class="header-btn search-btn" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="currency-btn" type="button">
+                    <span class="indonesia">🇮🇩</span>
+                    <span>ID / IDR</span>
+                </button>
+                <button class="header-btn menu-btn" type="button" onclick="bukaMenu()"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+    </div>
+
+    <!-- ================= WADAH PENGUNCI BATAS HALAMAN ================= -->
+    <div class="kunci-halaman">
+        <div class="konten-web">
+
+            <main class="ml-main">
+
+                <!-- ================= BANNER INFO GAME ================= -->
+                <section class="game-banner">
+                    <div class="banner-top">
+                        <div class="game-thumb">
+                            <img src="images/produk1.jpg" alt="Mobile Legends">
+                        </div>
+                        <div class="game-meta">
+                            <h1>MOBILE LEGENDS</h1>
+                            <p class="publisher">Moonton</p>
+                        </div>
+                    </div>
+
+                    <div class="game-badges">
+                        <span class="badge-item"><i class="fa-solid fa-bolt text-yellow"></i> Proses Cepat</span>
+                        <span class="badge-item"><i class="fa-solid fa-comment-dots text-purple"></i> Layanan Chat 24/7</span>
+                        <span class="badge-item"><i class="fa-solid fa-circle-check text-blue"></i> Pembayaran Aman!</span>
+                    </div>
+                </section>
+
+                <!-- ================= TAB TRANSAKSI / KETERANGAN ================= -->
+                <div class="tabs-container">
+                    <button class="tab-btn active" id="btn-tab-transaksi" onclick="gantiTab('transaksi', this)">Transaksi</button>
+                    <button class="tab-btn" id="btn-tab-keterangan" onclick="gantiTab('keterangan', this)">Keterangan</button>
+                </div>
+
+                <!-- ================= KONTEN 1: TAB TRANSAKSI ================= -->
+                <div id="tab-transaksi">
+
+                    <!-- STEP 1: DATA AKUN -->
+                    <section class="step-card" id="step-akun">
+                        <div class="step-header">
+                            <span class="step-number">1</span>
+                            <h2>Masukkan Data Akun</h2>
+                        </div>
+                        <div class="step-body">
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label>ID <i class="fa-regular fa-circle-question"></i></label>
+                                    <input type="number" id="ml-id" placeholder="Masukkan ID">
+                                </div>
+                                <div class="form-group">
+                                    <label>Server</label>
+                                    <input type="number" id="ml-zone" placeholder="Masukkan Server">
+                                </div>
+                            </div>
+
+                            <!-- WADAH NICKNAME MUNCUL DI SINI -->
+                            <div id="kotak-hasil-akun" class="kotak-akun"></div>
+                        </div>
+                    </section>
+
+                    <!-- STEP 2: PILIH NOMINAL -->
+                    <section class="step-card" id="step-nominal">
+                        <div class="step-header">
+                            <span class="step-number">2</span>
+                            <h2>Pilih Nominal</h2>
+                        </div>
+                        <div class="step-body">
+
+                            <!-- Special Items -->
+                            <h3 class="nominal-category">Special Items</h3>
+                            <div class="nominal-grid">
+                                <div class="nominal-card" onclick="pilihItem(this, 'Weekly Diamond Pass', 'Rp 31.313')">
+                                    <div class="nom-title">Weekly Diamond Pass</div>
+                                    <div class="nom-price-row">
+                                        <span class="nom-icon diamond-icon"><i class="fa-solid fa-gem"></i></span>
+                                        <span class="nom-price">Rp 31.313</span>
+                                    </div>
+                                    <div class="instant-tag"><i class="fa-solid fa-bolt"></i> Pengiriman <b>INSTAN</b></div>
+                                </div>
+
+                                <div class="nominal-card" onclick="pilihItem(this, '2x Weekly Diamond Pass', 'Rp 62.625')">
+                                    <div class="nom-title">2x Weekly Diamond Pass</div>
+                                    <div class="nom-price-row">
+                                        <span class="nom-icon diamond-icon"><i class="fa-solid fa-gem"></i></span>
+                                        <span class="nom-price">Rp 62.625</span>
+                                    </div>
+                                    <div class="instant-tag"><i class="fa-solid fa-bolt"></i> Pengiriman <b>INSTAN</b></div>
+                                </div>
+
+                                <div class="nominal-card" onclick="pilihItem(this, '3x Weekly Diamond Pass', 'Rp 93.937')">
+                                    <div class="nom-title">3x Weekly Diamond Pass</div>
+                                    <div class="nom-price-row">
+                                        <span class="nom-icon diamond-icon"><i class="fa-solid fa-gem"></i></span>
+                                        <span class="nom-price">Rp 93.937</span>
+                                    </div>
+                                    <div class="instant-tag"><i class="fa-solid fa-bolt"></i> Pengiriman <b>INSTAN</b></div>
+                                </div>
+
+                                <div class="nominal-card" onclick="pilihItem(this, 'Twilight Pass', 'Rp 164.685')">
+                                    <div class="nom-title">Twilight Pass</div>
+                                    <div class="nom-price-row">
+                                        <span class="nom-icon ticket-icon"><i class="fa-solid fa-ticket"></i></span>
+                                        <span class="nom-price">Rp 164.685</span>
+                                    </div>
+                                    <div class="instant-tag"><i class="fa-solid fa-bolt"></i> Pengiriman <b>INSTAN</b></div>
+                                </div>
+                            </div>
+
+                            <!-- Top Up Instant -->
+                            <h3 class="nominal-category">Top Up Instant</h3>
+                            <div class="nominal-grid">
+                                <div class="nominal-card" onclick="pilihItem(this, '5 (5+0) Diamonds', 'Rp 1.580')">
+                                    <div class="nom-title">5 (5+0) Diamonds</div>
+                                    <div class="nom-price-row">
+                                        <span class="nom-icon diamond-icon"><i class="fa-solid fa-gem"></i></span>
+                                        <span class="nom-price">Rp 1.580</span>
+                                    </div>
+                                    <div class="instant-tag"><i class="fa-solid fa-bolt"></i> Pengiriman <b>INSTAN</b></div>
+                                </div>
+
+                                <div class="nominal-card" onclick="pilihItem(this, '11 (10+1) Diamonds', 'Rp 3.156')">
+                                    <div class="nom-title">11 (10+1) Diamonds</div>
+                                    <div class="nom-price-row">
+                                        <span class="nom-icon diamond-icon"><i class="fa-solid fa-gem"></i></span>
+                                        <span class="nom-price">Rp 3.156</span>
+                                    </div>
+                                    <div class="instant-tag"><i class="fa-solid fa-bolt"></i> Pengiriman <b>INSTAN</b></div>
+                                </div>
+
+                                <div class="nominal-card" onclick="pilihItem(this, '14 (13+1) Diamonds', 'Rp 4.237')">
+                                    <div class="nom-title">14 (13+1) Diamonds</div>
+                                    <div class="nom-price-row">
+                                        <span class="nom-icon diamond-icon"><i class="fa-solid fa-gem"></i></span>
+                                        <span class="nom-price">Rp 4.237</span>
+                                    </div>
+                                    <div class="instant-tag"><i class="fa-solid fa-bolt"></i> Pengiriman <b>INSTAN</b></div>
+                                </div>
+
+                                <div class="nominal-card" onclick="pilihItem(this, '19 (17+2) Diamonds', 'Rp 6.006')">
+                                    <div class="nom-title">19 (17+2) Diamonds</div>
+                                    <div class="nom-price-row">
+                                        <span class="nom-icon diamond-icon"><i class="fa-solid fa-gem"></i></span>
+                                        <span class="nom-price">Rp 6.006</span>
+                                    </div>
+                                    <div class="instant-tag"><i class="fa-solid fa-bolt"></i> Pengiriman <b>INSTAN</b></div>
+                                </div>
+
+                                <div class="nominal-card" onclick="pilihItem(this, '28 (25+3) Diamonds', 'Rp 8.822')">
+                                    <div class="nom-title">28 (25+3) Diamonds</div>
+                                    <div class="nom-price-row">
+                                        <span class="nom-icon diamond-icon"><i class="fa-solid fa-gem"></i></span>
+                                        <span class="nom-price">Rp 8.822</span>
+                                    </div>
+                                    <div class="instant-tag"><i class="fa-solid fa-bolt"></i> Pengiriman <b>INSTAN</b></div>
+                                </div>
+
+                                <div class="nominal-card" onclick="pilihItem(this, '44 (40+4) Diamonds', 'Rp 13.174')">
+                                    <div class="nom-title">44 (40+4) Diamonds</div>
+                                    <div class="nom-price-row">
+                                        <span class="nom-icon diamond-icon"><i class="fa-solid fa-gem"></i></span>
+                                        <span class="nom-price">Rp 13.174</span>
+                                    </div>
+                                    <div class="instant-tag"><i class="fa-solid fa-bolt"></i> Pengiriman <b>INSTAN</b></div>
+                                </div>
+
+                                <div class="nominal-card" onclick="pilihItem(this, '85 (77+8) Diamonds', 'Rp 25.183')">
+                                    <div class="nom-title">85 (77+8) Diamonds</div>
+                                    <div class="nom-price-row">
+                                        <span class="nom-icon diamond-icon"><i class="fa-solid fa-gem"></i></span>
+                                        <span class="nom-price">Rp 25.183</span>
+                                    </div>
+                                    <div class="instant-tag"><i class="fa-solid fa-bolt"></i> Pengiriman <b>INSTAN</b></div>
+                                </div>
+
+                                <div class="nominal-card" onclick="pilihItem(this, '100 (50+50) Diamonds', 'Rp 14.182')">
+                                    <div class="nom-title">100 (50+50) Diamonds - First Top Up</div>
+                                    <div class="nom-price-row">
+                                        <span class="nom-icon diamond-icon"><i class="fa-solid fa-gem"></i></span>
+                                        <span class="nom-price">Rp 14.182</span>
+                                    </div>
+                                    <div class="instant-tag"><i class="fa-solid fa-bolt"></i> Pengiriman <b>INSTAN</b></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- STEP 3: JUMLAH PEMBELIAN -->
+                    <section class="step-card" id="step-qty">
+                        <div class="step-header">
+                            <span class="step-number">3</span>
+                            <h2>Masukkan Jumlah Pembelian</h2>
+                        </div>
+                        <div class="step-body">
+                            <div class="quantity-row">
+                                <input type="number" id="qty-input" value="1" min="1" readonly>
+                                <button type="button" class="qty-btn" onclick="ubahQty(1)">+</button>
+                                <button type="button" class="qty-btn" onclick="ubahQty(-1)">−</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- STEP 4: PILIH PEMBAYARAN (ACCORDION LENGKAP) -->
+                    <section class="step-card" id="step-bayar">
+                        <div class="step-header">
+                            <span class="step-number">4</span>
+                            <h2>Pilih Pembayaran</h2>
+                        </div>
+                        <div class="step-body payment-group">
+
+                            <!-- BEST PRICE QRIS (ALL PAYMENT) -->
+                            <div class="pay-bestprice payment-option" onclick="pilihMetodeBayar(this, 'QRIS (All Payment)', event)">
+                                <div class="bestprice-badge">BEST PRICE</div>
+                                <div class="pay-title">QRIS (All Payment)</div>
+                                <div class="qris-box">
+                                    <span class="qris-logo">QRIS</span>
+                                </div>
+                            </div>
+
+                            <!-- ACCORDION 1: QRIS -->
+                            <div class="accordion-item" id="acc-qris">
+                                <div class="accordion-header" onclick="toggleAccordion('acc-qris')">
+                                    <span class="acc-title">QRIS</span>
+                                    <div class="acc-right-side">
+                                        <i class="fa-solid fa-chevron-down acc-arrow"></i>
+                                    </div>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="pay-subgrid">
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'QRIS Mandiri', event)">
+                                            <div class="pay-subcard-brand brand-mandiri">mandiri</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'QRIS BNI', event)">
+                                            <div class="pay-subcard-brand brand-bni">BNI</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'QRIS GOPAY', event)">
+                                            <div class="pay-subcard-brand brand-gopay">gopay</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'QRIS LinkAja', event)">
+                                            <div class="pay-subcard-brand brand-linkaja">LinkAja</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'QRIS BCA', event)">
+                                            <div class="pay-subcard-brand brand-bca">BCA</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'QRIS DANA', event)">
+                                            <div class="pay-subcard-brand brand-dana">DANA</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ACCORDION 2: E-WALLET -->
+                            <div class="accordion-item" id="acc-ewallet">
+                                <div class="accordion-header" onclick="toggleAccordion('acc-ewallet')">
+                                    <span class="acc-title">E-Wallet</span>
+                                    <div class="acc-right-side">
+                                        <div class="mini-logos">
+                                            <span class="mini-tag tag-dana">DANA</span>
+                                            <span class="mini-tag tag-ovo">OVO</span>
+                                            <span class="mini-tag tag-spay">SPay</span>
+                                            <span class="mini-tag tag-linkaja">LinkAja</span>
+                                        </div>
+                                        <i class="fa-solid fa-chevron-down acc-arrow"></i>
+                                    </div>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="pay-subgrid">
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'DANA', event)">
+                                            <div class="pay-subcard-brand brand-dana">DANA</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'OVO', event)">
+                                            <div class="pay-subcard-brand brand-ovo">OVO</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'ShopeePay', event)">
+                                            <div class="pay-subcard-brand brand-spay">ShopeePay</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'LinkAja', event)">
+                                            <div class="pay-subcard-brand brand-linkaja">LinkAja</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ACCORDION 3: VIRTUAL ACCOUNT -->
+                            <div class="accordion-item" id="acc-va">
+                                <div class="accordion-header" onclick="toggleAccordion('acc-va')">
+                                    <span class="acc-title">Virtual Account</span>
+                                    <div class="acc-right-side">
+                                        <i class="fa-solid fa-chevron-down acc-arrow"></i>
+                                    </div>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="pay-subgrid">
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'Permata Bank VA', event)">
+                                            <div class="pay-subcard-brand brand-permata">PermataBank</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'Mandiri VA', event)">
+                                            <div class="pay-subcard-brand brand-mandiri">mandiri VA</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'BRIVA (BRI VA)', event)">
+                                            <div class="pay-subcard-brand brand-briva">BRIVA</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'BNI VA', event)">
+                                            <div class="pay-subcard-brand brand-bni">BNI VA</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'CIMB Niaga VA', event)">
+                                            <div class="pay-subcard-brand brand-cimb">CIMB NIAGA</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'BNC (Bank Neo) VA', event)">
+                                            <div class="pay-subcard-brand brand-bnc">BNC Neo</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'Maybank VA', event)">
+                                            <div class="pay-subcard-brand brand-maybank">Maybank</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+
+                                        <div class="pay-subcard payment-option" onclick="pilihMetodeBayar(this, 'BSI VA', event)">
+                                            <div class="pay-subcard-brand brand-bsi">BSI VA</div>
+                                            <div class="pay-subcard-price">Rp 31.313</div>
+                                            <div class="pay-subcard-divider"></div>
+                                            <div class="pay-subcard-note">Dicek Otomatis</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- STEP 5: KODE PROMO -->
+                    <section class="step-card">
+                        <div class="step-header">
+                            <span class="step-number">5</span>
+                            <h2>Kode Promo</h2>
+                        </div>
+                        <div class="step-body">
+                            <div class="promo-input-row">
+                                <input type="text" placeholder="Ketik Kode Promo Kamu (Boleh Kosong)">
+                                <button class="btn-use" type="button">Gunakan</button>
+                            </div>
+                            <button class="btn-promo-avail" type="button">
+                                <i class="fa-solid fa-ticket"></i> Pakai Promo Yang Tersedia
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- STEP 6: DETAIL KONTAK -->
+                    <section class="step-card" id="step-kontak">
+                        <div class="step-header">
+                            <span class="step-number">6</span>
+                            <h2>Detail Kontak</h2>
+                        </div>
+                        <div class="step-body">
+                            <div class="form-group mb-20">
+                                <label>Email</label>
+                                <input type="email" id="ml-email" placeholder="example@gmail.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label>No. WhatsApp</label>
+                                <div class="phone-input-row">
+                                    <div class="country-pill" id="btn-pilih-negara" onclick="toggleCountryDropdown(event)">
+                                        <span id="bendera-terpilih">🇮🇩</span>
+                                        <span class="panah-negara">⇅</span>
+                                    </div>
+
+                                    <input type="tel" id="ml-wa" value="+62 " placeholder="+62 812345678">
+
+                                    <div class="country-dropdown-modal" id="modal-negara">
+                                        <div class="country-search-box">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                            <input type="text" id="cari-negara" placeholder="Search country..." oninput="filterNegara()">
+                                        </div>
+                                        <div class="country-list-scroll" id="daftar-negara"></div>
+                                    </div>
+                                </div>
+                                <small class="hint-text">**Nomor ini akan dihubungi jika terjadi masalah</small>
+                            </div>
+
+                            <div class="info-alert">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span>Bukti transaksi akan kami kirim ke email/wa yang kamu isi di atas.</span>
+                            </div>
+                        </div>
+                    </section>
+
+                </div> <!-- AKHIR TAB TRANSAKSI -->
+
+                <!-- ================= KONTEN 2: TAB KETERANGAN ================= -->
+                <div id="tab-keterangan" style="display: none;">
+                    <section class="deskripsi-card">
+                        <div class="deskripsi-header">
+                            <h2>Deskripsi Mobile Legends</h2>
+                        </div>
+                        <div class="deskripsi-body">
+                            <p>Top up ML diamond Mobile Legends harga paling murah.<br>Cara topup MLBB termurah :</p>
+                            
+                            <div class="deskripsi-sublist">
+                                <div>Masukkan ID &amp; server</div>
+                                <div>Pilih Nominal</div>
+                                <div>Masukkan jumlah</div>
+                                <div>Pilih Pembayaran</div>
+                                <div>Tulis Kode Promo (jika ada)</div>
+                                <div>Masukkan No WhatsApp</div>
+                                <div>Klik Order Now &amp; lakukan Pembayaran</div>
+                                <div>Diamonds otomatis masuk ke akun game</div>
+                            </div>
+
+                            <div class="deskripsi-note">
+                                #Note : Untuk Diamond ML dan WDP Promo Proses 1-60 Menit maximal max 1-2 Hari (jika ada kendala)<br>Mohon untuk bersabar menunggu 🙏
+                            </div>
+                        </div>
+                    </section>
+                </div> <!-- AKHIR TAB KETERANGAN -->
+
+                <!-- BANTUAN -->
+                <div class="support-box">
+                    <i class="fa-solid fa-headphones"></i>
+                    <div>
+                        <h4>Butuh Bantuan?</h4>
+                        <p>Kamu bisa hubungi admin disini.</p>
+                    </div>
+                </div>
+
+            </main>
+
+            <!-- ================= FOOTER ================= -->
+            <footer class="footer">
+                <div class="footer-wave">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M 0,55 C 120,20 180,20 280,45 C 380,72 460,72 560,42 C 660,12 740,12 840,42 C 920,68 1020,68 1120,42 C 1160,32 1190,32 1200,38 L 1200,120 L 0,120 Z"></path>
+                    </svg>
+                </div>
+
+                <div class="footer-container">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="images/logo.png" alt="RdhaMrket">
+                        </div>
+                        <p class="footer-desc">
+                            Tempat Top Up dan Joki 100% Legal, Murah, Aman, Proses Cepat Dan Terpercaya, Penuhi Kebutuhanmu di rdhamrket.
+                        </p>
+                        <div class="footer-socials">
+                            <a href="https://wa.me/" class="social-btn wa"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="https://instagram.com/" class="social-btn ig"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-links-grid">
+                        <div class="footer-col">
+                            <div class="footer-group">
+                                <h3>Peta Situs</h3>
+                                <ul>
+                                    <li><a href="tampilan.html">Beranda</a></li>
+                                    <li><a href="#">Masuk</a></li>
+                                    <li><a href="#">Daftar</a></li>
+                                    <li><a href="#">Cek Transaksi</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-col">
+                            <div class="footer-group">
+                                <h3>Dukungan</h3>
+                                <ul>
+                                    <li><a href="#">Whatsapp</a></li>
+                                    <li><a href="#">Instagram</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <p>© 2026 RDHAMRKET. All rights reserved.</p>
+                        <button class="theme-toggle" type="button"><i class="fa-regular fa-moon"></i></button>
+                    </div>
+                </div>
+            </footer>
+
+        </div> <!-- AKHIR KONTEN-WEB -->
+    </div> <!-- AKHIR KUNCI-HALAMAN -->
+
+    <!-- ================= STICKY BOTTOM CHECKOUT BAR ================= -->
+    <div class="checkout-bar">
+
+        <!-- KONDISI 1: BELUM ADA ITEM DIPILIH (PERSIS GAMBAR 9205) -->
+        <div class="selected-summary-empty" id="summaryEmpty">
+            Belum ada item produk yang dipilih.
+        </div>
+
+        <!-- KONDISI 2: SETELAH ITEM DIPILIH (PERSIS GAMBAR 9216) -->
+        <div class="summary-dropdown" id="summaryDropdown" style="display: none;" onclick="toggleSummaryDropdown()">
+            <div class="summary-header">
+                <div class="summary-left">
+                    <!-- FOTO THUMBNAIL MOBILE LEGENDS PERSIS GAMBAR 9216 -->
+                    <div class="summary-thumb-box">
+                        <img src="images/produk1.jpg" alt="Mobile Legends" class="summary-thumb-img">
+                    </div>
+                    <div class="summary-titles">
+                        <span class="summary-game">Mobile Legends</span>
+                        <span class="summary-product" id="summaryProductName">-</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-down summary-arrow" id="summaryArrow"></i>
+            </div>
+
+            <!-- RINCIAN YANG TERBUKA KE ATAS SAAT DIPENCET -->
+            <div class="summary-details" id="summaryDetails">
+                <div class="summary-row">
+                    <span class="label">Metode Pembayaran</span>
+                    <span class="val" id="sumMetode">Belum dipilih</span>
+                </div>
+                <div class="summary-row">
+                    <span class="label">Harga</span>
+                    <span class="val" id="sumHarga">Rp 0</span>
+                </div>
+                <div class="summary-row">
+                    <span class="label">Jumlah Pembelian</span>
+                    <span class="val" id="sumQty">1</span>
+                </div>
+                <div class="summary-row">
+                    <span class="label">Biaya</span>
+                    <span class="val" id="sumBiaya">Rp 0</span>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-row total-row">
+                    <span class="label">Total Pembayaran</span>
+                    <span class="val" id="sumTotal">Rp 0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOMBOL PESAN SEKARANG -->
+        <button class="order-btn" id="btnPesan" type="button">
+            <i class="fa-solid fa-bag-shopping"></i> Pesan Sekarang!
+        </button>
+    </div>
+
+    <!-- FLOATING CHAT -->
+    <a href="#" class="floating-chat"><i class="fa-solid fa-comment-dots"></i></a>
+
+    <!-- POPUP MENU IFRAME -->
+    <iframe id="menuFrame" src="menu.html"></iframe>
+
+    <!-- ================= JAVASCRIPT LOGIKA LENGKAP ================= -->
+    <script>
+        let itemTerpilihData = null;
+        let metodeBayarTerpilih = "";
+        let kodeNegaraAktif = "+62";
+        let hargaSatuanNumerik = 0;
+
+        // DATA NEGARA
+        const dataNegara = [
+            { flag: "🇮🇩", name: "Indonesia", code: "+62" },
+            { flag: "🇲🇾", name: "Malaysia", code: "+60" },
+            { flag: "🇸🇬", name: "Singapore", code: "+65" },
+            { flag: "🇵🇭", name: "Philippines", code: "+63" },
+            { flag: "🇦🇫", name: "Afghanistan", code: "+93" },
+            { flag: "🇦🇽", name: "Åland Islands", code: "+358" },
+            { flag: "🇦🇱", name: "Albania", code: "+355" },
+            { flag: "🇩🇿", name: "Algeria", code: "+213" },
+            { flag: "🇦🇸", name: "American Samoa", code: "+1" },
+            { flag: "🇦🇩", name: "Andorra", code: "+376" },
+            { flag: "🇦🇴", name: "Angola", code: "+244" },
+            { flag: "🇦🇮", name: "Anguilla", code: "+1" },
+            { flag: "🇦🇬", name: "Antigua and Barbuda", code: "+1" },
+            { flag: "🇦🇷", name: "Argentina", code: "+54" },
+            { flag: "🇦🇺", name: "Australia", code: "+61" },
+            { flag: "🇧🇷", name: "Brazil", code: "+55" },
+            { flag: "🇧🇳", name: "Brunei", code: "+673" },
+            { flag: "🇨🇦", name: "Canada", code: "+1" },
+            { flag: "🇨🇳", name: "China", code: "+86" },
+            { flag: "🇫🇷", name: "France", code: "+33" },
+            { flag: "🇩🇪", name: "Germany", code: "+49" },
+            { flag: "🇭🇰", name: "Hong Kong", code: "+852" },
+            { flag: "🇮🇳", name: "India", code: "+91" },
+            { flag: "🇯🇵", name: "Japan", code: "+81" },
+            { flag: "🇸🇦", name: "Saudi Arabia", code: "+966" },
+            { flag: "🇰🇷", name: "South Korea", code: "+82" },
+            { flag: "🇹🇼", name: "Taiwan", code: "+886" },
+            { flag: "🇹🇭", name: "Thailand", code: "+66" },
+            { flag: "🇬🇧", name: "United Kingdom", code: "+44" },
+            { flag: "🇺🇸", name: "United States", code: "+1" },
+            { flag: "🇻🇳", name: "Vietnam", code: "+84" }
+        ];
+
+        function renderNegara(list) {
+            const container = document.getElementById("daftar-negara");
+            if (!container) return;
+            container.innerHTML = "";
+            list.forEach(item => {
+                const row = document.createElement("div");
+                row.className = "country-item";
+                row.onclick = () => pilihNegara(item.flag, item.code);
+                row.innerHTML = `
+                    <div class="ci-left">
+                        <span class="ci-flag">${item.flag}</span>
+                        <span class="ci-name">${item.name}</span>
+                    </div>
+                    <span class="ci-code">${item.code}</span>
+                `;
+                container.appendChild(row);
+            });
+        }
+        renderNegara(dataNegara);
+
+        function toggleCountryDropdown(e) {
+            e.stopPropagation();
+            const modal = document.getElementById("modal-negara");
+            if (!modal) return;
+            modal.classList.toggle("open");
+            if (modal.classList.contains("open")) {
+                const search = document.getElementById("cari-negara");
+                if (search) {
+                    search.value = "";
+                    renderNegara(dataNegara);
+                    search.focus();
+                }
+            }
+        }
+
+        function filterNegara() {
+            const q = document.getElementById("cari-negara").value.toLowerCase();
+            const filtered = dataNegara.filter(n => n.name.toLowerCase().includes(q) || n.code.includes(q));
+            renderNegara(filtered);
+        }
+
+        function pilihNegara(flag, code) {
+            document.getElementById("bendera-terpilih").innerText = flag;
+            const inputWa = document.getElementById("ml-wa");
+            let sisaNomor = inputWa.value.replace(kodeNegaraAktif, "").trim();
+            kodeNegaraAktif = code;
+            inputWa.value = `${code} ${sisaNomor}`.trim() + " ";
+            document.getElementById("modal-negara").classList.remove("open");
+            inputWa.focus();
+        }
+
+        document.addEventListener("click", function(e) {
+            const modal = document.getElementById("modal-negara");
+            const btn = document.getElementById("btn-pilih-negara");
+            if (modal && !modal.contains(e.target) && !btn.contains(e.target)) {
+                modal.classList.remove("open");
+            }
+        });
+
+        // BUKA-TUTUP DROPDOWN RINCIAN CHECKOUT BAR
+        function toggleSummaryDropdown() {
+            const dropdown = document.getElementById("summaryDropdown");
+            if (dropdown) {
+                dropdown.classList.toggle("open");
+            }
+        }
+
+        // HITUNG BIAYA TRANSAKSI (SEMAKIN MAHAL HARGA -> BIAYA IKUT NAIK)
+        function hitungBiaya(subtotal, metode) {
+            if (!metode || subtotal <= 0) return 0;
+            const m = metode.toUpperCase();
+
+            // QRIS: 1.2% (Persis seperti screenshot: Rp 16.838 -> Biaya Rp 202)
+            if (m.includes("QRIS")) {
+                return Math.round(subtotal * 0.012);
+            }
+            // E-WALLET: 1.8%
+            else if (m.includes("WALLET") || m.includes("DANA") || m.includes("OVO") || m.includes("SHOPEE") || m.includes("LINKAJA")) {
+                return Math.round(subtotal * 0.018);
+            }
+            // VIRTUAL ACCOUNT: 1.5% + Rp 1.500
+            else if (m.includes("VA") || m.includes("VIRTUAL") || m.includes("BANK") || m.includes("BRIVA")) {
+                return Math.round(subtotal * 0.015) + 1500;
+            }
+            return Math.round(subtotal * 0.01);
+        }
+
+        // UPDATE HITUNGAN HARGA, BIAYA, & TOTAL SECARA OTOMATIS
+        function updateSummaryCalculation() {
+            const qty = parseInt(document.getElementById("qty-input").value) || 1;
+            document.getElementById("sumQty").innerText = qty;
+
+            const subtotal = hargaSatuanNumerik * qty;
+            const biaya = hitungBiaya(subtotal, metodeBayarTerpilih);
+            const total = subtotal + biaya;
+
+            document.getElementById("sumMetode").innerText = metodeBayarTerpilih || "Belum dipilih";
+            document.getElementById("sumHarga").innerText = subtotal > 0 ? ("Rp " + subtotal.toLocaleString("id-ID")) : "Rp 0";
+            document.getElementById("sumBiaya").innerText = biaya > 0 ? ("Rp " + biaya.toLocaleString("id-ID")) : "Rp 0";
+            document.getElementById("sumTotal").innerText = total > 0 ? ("Rp " + total.toLocaleString("id-ID")) : "Rp 0";
+        }
+
+        // FUNGSI AUTO-SCROLL AMAN DARI HEADER
+        function lanjutKeStep(idTarget) {
+            const target = document.getElementById(idTarget);
+            if (!target) return;
+
+            const header = document.querySelector(".header-tetap");
+            const tinggiHeader = header ? header.offsetHeight : 90;
+            const posisiElemen = target.getBoundingClientRect().top + window.pageYOffset;
+            const posisiAkhir = posisiElemen - (tinggiHeader + 15);
+
+            window.scrollTo({
+                top: posisiAkhir,
+                behavior: "smooth"
+            });
+        }
+
+        // PILIH ITEM & GANTI TAMPILAN KE KARTU RINCIAN ML
+        function pilihItem(el, title, price) {
+            document.querySelectorAll(".nominal-card").forEach(card => {
+                card.classList.remove("active");
+            });
+            el.classList.add("active");
+
+            itemTerpilihData = { title, price };
+            hargaSatuanNumerik = parseInt(price.replace(/\D/g, "")) || 0;
+
+            // BERALIH DARI KOTAK KOSONG KE KARTU RINCIAN
+            const summaryEmpty = document.getElementById("summaryEmpty");
+            const summaryDropdown = document.getElementById("summaryDropdown");
+            if (summaryEmpty && summaryDropdown) {
+                summaryEmpty.style.display = "none";
+                summaryDropdown.style.display = "block";
+            }
+
+            document.getElementById("summaryProductName").innerText = title;
+            updateSummaryCalculation();
+
+            // Update harga dasar di kartu metode pembayaran
+            document.querySelectorAll(".pay-subcard-price").forEach(p => {
+                p.innerText = price;
+            });
+
+            // OTOMATIS MELUNCUR KE STEP 3
+            setTimeout(() => {
+                lanjutKeStep("step-qty");
+            }, 300);
+        }
+
+        // UBAH JUMLAH PEMBELIAN
+        function ubahQty(delta) {
+            const input = document.getElementById("qty-input");
+            let value = parseInt(input.value) || 1;
+            value = Math.max(1, value + delta);
+            input.value = value;
+
+            updateSummaryCalculation();
+        }
+
+        // PILIH METODE BAYAR + RE-KALKULASI BIAYA & TOTAL
+        function pilihMetodeBayar(el, namaMetode, event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            document.querySelectorAll(".payment-option").forEach(item => {
+                item.classList.remove("active-bayar");
+            });
+            el.classList.add("active-bayar");
+            metodeBayarTerpilih = namaMetode;
+
+            // Hitung ulang biaya sesuai metode yang baru dipilih
+            updateSummaryCalculation();
+
+            setTimeout(() => {
+                lanjutKeStep("step-kontak");
+            }, 350);
+        }
+
+        // ACCORDION PEMBAYARAN
+        function toggleAccordion(id) {
+            const targetAcc = document.getElementById(id);
+            if (!targetAcc) return;
+
+            const isOpen = targetAcc.classList.contains("open");
+            document.querySelectorAll(".accordion-item").forEach(acc => {
+                acc.classList.remove("open");
+            });
+
+            if (!isOpen) {
+                targetAcc.classList.add("open");
+            }
+
+            kunciBatasBawah();
+            setTimeout(kunciBatasBawah, 150);
+        }
+
+        // TAB TRANSAKSI <-> KETERANGAN
+        function gantiTab(tab, btn) {
+            document.querySelectorAll(".tab-btn").forEach(button => {
+                button.classList.remove("active");
+            });
+            btn.classList.add("active");
+
+            const transaksi = document.getElementById("tab-transaksi");
+            const keterangan = document.getElementById("tab-keterangan");
+            const checkout = document.querySelector(".checkout-bar");
+
+            if (tab === "transaksi") {
+                if (transaksi) transaksi.style.display = "block";
+                if (keterangan) keterangan.style.display = "none";
+                if (checkout) checkout.style.display = "";
+            } else {
+                if (transaksi) transaksi.style.display = "none";
+                if (keterangan) keterangan.style.display = "block";
+                if (checkout) checkout.style.display = "none";
+            }
+
+            kunciBatasBawah();
+            setTimeout(kunciBatasBawah, 100);
+        }
+
+        // KUNCI BATAS BAWAH SCROLL TEPAT DI FOOTER
+        function kunciBatasBawah() {
+            if (window.innerWidth < 1024) {
+                const konten = document.querySelector(".konten-web");
+                const wadah = document.querySelector(".kunci-halaman");
+                if (konten && wadah) {
+                    const tinggiNyata = Math.ceil(konten.getBoundingClientRect().height);
+                    wadah.style.height = tinggiNyata + "px";
+                }
+            } else {
+                const wadah = document.querySelector(".kunci-halaman");
+                if (wadah) wadah.style.height = "auto";
+            }
+        }
+
+        window.addEventListener("load", kunciBatasBawah);
+        if (window.ResizeObserver) {
+            const konten = document.querySelector(".konten-web");
+            if (konten) new ResizeObserver(kunciBatasBawah).observe(konten);
+        }
+        document.querySelectorAll("img").forEach(img => {
+            img.addEventListener("load", kunciBatasBawah);
+        });
+        kunciBatasBawah();
+        setTimeout(kunciBatasBawah, 300);
+        setTimeout(kunciBatasBawah, 800);
+
+        function bukaMenu() {
+            document.getElementById("menuFrame").style.display = "block";
+        }
+        window.addEventListener("message", function(event) {
+            if (event.data === "tutupMenu") {
+                document.getElementById("menuFrame").style.display = "none";
+            }
+        });
+    </script>
+
+    <!-- ================= FLOATING CHAT DRAG ================= -->
+    <script>
+        (function() {
+            const chatBtn = document.querySelector(".floating-chat");
+            if (!chatBtn) return;
+
+            chatBtn.style.touchAction = "none";
+
+            let isDragging = false;
+            let startX = 0, startY = 0;
+            let initialLeft = 0, initialTop = 0;
+            let hasMoved = false;
+
+            function mulai(e) {
+                isDragging = true;
+                hasMoved = false;
+
+                const touch = e.touches ? e.touches[0] : e;
+                startX = touch.clientX;
+                startY = touch.clientY;
+
+                const rect = chatBtn.getBoundingClientRect();
+                initialLeft = rect.left;
+                initialTop = rect.top;
+
+                chatBtn.style.right = "auto";
+                chatBtn.style.bottom = "auto";
+                chatBtn.style.left = initialLeft + "px";
+                chatBtn.style.top = initialTop + "px";
+                chatBtn.style.transition = "none";
+
+                if (e.cancelable) e.preventDefault();
+            }
+
+            function geser(e) {
+                if (!isDragging) return;
+                if (e.cancelable) e.preventDefault();
+
+                const touch = e.touches ? e.touches[0] : e;
+                const deltaX = touch.clientX - startX;
+                const deltaY = touch.clientY - startY;
+
+                if (Math.abs(deltaX) > 3 || Math.abs(deltaY) > 3) {
+                    hasMoved = true;
+                }
+
+                let newLeft = initialLeft + deltaX;
+                let newTop = initialTop + deltaY;
+
+                const maxLeft = window.innerWidth - chatBtn.offsetWidth - 10;
+                const maxTop = window.innerHeight - chatBtn.offsetHeight - 10;
+
+                newLeft = Math.max(10, Math.min(newLeft, maxLeft));
+                newTop = Math.max(10, Math.min(newTop, maxTop));
+
+                chatBtn.style.left = newLeft + "px";
+                chatBtn.style.top = newTop + "px";
+            }
+
+            function berhenti() {
+                isDragging = false;
+            }
+
+            chatBtn.addEventListener("touchstart", mulai, { passive: false });
+            window.addEventListener("touchmove", geser, { passive: false });
+            window.addEventListener("touchend", berhenti);
+
+            chatBtn.addEventListener("mousedown", mulai);
+            window.addEventListener("mousemove", geser);
+            window.addEventListener("mouseup", berhenti);
+
+            chatBtn.addEventListener("click", function(e) {
+                if (hasMoved) e.preventDefault();
+            });
+        })();
+    </script>
+
+    <!-- ================= CEK NICKNAME ML OTOMATIS ================= -->
+    <script>
+        (function() {
+            const inputId = document.getElementById("ml-id");
+            const inputZone = document.getElementById("ml-zone");
+            const kotakHasil = document.getElementById("kotak-hasil-akun");
+            let timer;
+
+            function periksaAkun() {
+                const id = inputId.value.trim();
+                const zone = inputZone.value.trim();
+
+                if (!id || !zone || id.length < 5 || zone.length < 3) {
+                    kotakHasil.style.display = "none";
+                    kotakHasil.className = "kotak-akun";
+                    return;
+                }
+
+                kotakHasil.style.display = "flex";
+                kotakHasil.className = "kotak-akun loading";
+                kotakHasil.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i><span>Memeriksa akun...</span>';
+
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    fetch(`https://api.isan.eu.org/nickname/ml?id=${encodeURIComponent(id)}&server=${encodeURIComponent(zone)}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data && data.success && data.name) {
+                                kotakHasil.className = "kotak-akun sukses";
+                                kotakHasil.innerHTML = `Your account is <span class="nama-akun">${data.name}</span> <i class="fa-solid fa-circle-check"></i> from Indonesia 🇮🇩`;
+                                kunciBatasBawah();
+
+                                setTimeout(() => {
+                                    lanjutKeStep("step-nominal");
+                                }, 650);
+                            } else {
+                                kotakHasil.className = "kotak-akun error";
+                                kotakHasil.innerHTML = '<i class="fa-solid fa-circle-xmark"></i><span>Akun tidak ditemukan. Periksa kembali ID & Server!</span>';
+                                kunciBatasBawah();
+                            }
+                        })
+                        .catch(() => {
+                            kotakHasil.className = "kotak-akun error";
+                            kotakHasil.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i><span>Gagal terhubung ke server pengecekan.</span>';
+                            kunciBatasBawah();
+                        });
+                }, 600);
+            }
+
+            if (inputId && inputZone) {
+                inputId.addEventListener("input", periksaAkun);
+                inputZone.addEventListener("input", periksaAkun);
+            }
+        })();
+    </script>
+
+    <!-- ================= TOAST POP-UP & VALIDASI ORDER ================= -->
+    <script>
+        let timerToast;
+
+        function munculkanToast(pesan, elemen) {
+            const tabTransaksiBtn = document.getElementById("btn-tab-transaksi");
+            if (tabTransaksiBtn && !tabTransaksiBtn.classList.contains("active")) {
+                gantiTab("transaksi", tabTransaksiBtn);
+            }
+
+            if (elemen) {
+                elemen.scrollIntoView({ behavior: "smooth", block: "center" });
+                elemen.classList.add("input-wajib-isi");
+                setTimeout(() => {
+                    elemen.classList.remove("input-wajib-isi");
+                }, 1600);
+
+                if (elemen.tagName === "INPUT") {
+                    elemen.focus();
+                }
+            }
+
+            const toast = document.getElementById("toast-notif");
+            const toastText = document.getElementById("toast-pesan");
+
+            if (toast && toastText) {
+                toastText.innerText = pesan;
+                toast.classList.add("show");
+
+                clearTimeout(timerToast);
+                timerToast = setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 2500);
+            }
+        }
+
+        function cekEmailValid(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function cekWaValid(nomor, kode) {
+            const angkaMurni = nomor.replace(/\D/g, "");
+            const kodeAngka = kode.replace(/\D/g, "");
+            const digitSisa = angkaMurni.startsWith(kodeAngka) ? angkaMurni.slice(kodeAngka.length) : angkaMurni;
+            return digitSisa.length >= 8 && digitSisa.length <= 15;
+        }
+
+        document.getElementById("btnPesan").addEventListener("click", function() {
+            const inputId = document.getElementById("ml-id");
+            const inputZone = document.getElementById("ml-zone");
+            const inputEmail = document.getElementById("ml-email");
+            const inputWa = document.getElementById("ml-wa");
+            const itemTerpilih = document.querySelector(".nominal-card.active");
+
+            // 1. DATA AKUN
+            if (!inputId || !inputId.value.trim() || !inputZone || !inputZone.value.trim()) {
+                const stepAkun = document.getElementById("step-akun") || inputId;
+                munculkanToast("Silahkan isi data akun terlebih dahulu.", stepAkun);
+                return;
+            }
+
+            // 2. NOMINAL
+            if (!itemTerpilih) {
+                const stepNominal = document.getElementById("step-nominal");
+                munculkanToast("Silahkan pilih nominal yang ingin dibeli terlebih dahulu.", stepNominal);
+                return;
+            }
+
+            // 3. PEMBAYARAN
+            if (!metodeBayarTerpilih) {
+                const stepBayar = document.getElementById("step-bayar");
+                munculkanToast("Silahkan pilih metode pembayaran terlebih dahulu.", stepBayar);
+                return;
+            }
+
+            // 4. VALIDASI EMAIL
+            const valEmail = inputEmail ? inputEmail.value.trim() : "";
+            if (!valEmail) {
+                munculkanToast("Email tidak boleh kosong", inputEmail);
+                return;
+            }
+            if (!cekEmailValid(valEmail)) {
+                munculkanToast("Format email tidak valid (contoh: nama@gmail.com)", inputEmail);
+                return;
+            }
+
+            // 5. VALIDASI WHATSAPP
+            const valWa = inputWa ? inputWa.value.trim() : "";
+            const nomorTanpaKode = valWa.replace(kodeNegaraAktif, "").trim();
+
+            if (!valWa || !nomorTanpaKode) {
+                munculkanToast("Nomor WhatsApp tidak boleh kosong", inputWa);
+                return;
+            }
+            if (!cekWaValid(valWa, kodeNegaraAktif)) {
+                munculkanToast("Nomor WhatsApp tidak valid (terlalu pendek)", inputWa);
+                return;
+            }
+
+            const totalBayar = document.getElementById("sumTotal").innerText;
+            alert(`Pesanan Berhasil Dibuat!\nItem: ${itemTerpilihData ? itemTerpilihData.title : ''}\nMetode: ${metodeBayarTerpilih}\nTotal: ${totalBayar}\nEmail: ${valEmail}\nNo WA: ${valWa}`);
+        });
+    </script>
+
+</body>
+</html>
